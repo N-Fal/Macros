@@ -303,10 +303,13 @@ public class Gui
 
     private void updateDisplayPanel()
     {
-        for (int i = 1; i < displayPanel.getComponents().length; i++)
+        for (int i = 0; i < displayPanel.getComponents().length; i++)
         {
             displayPanel.removeAll();
         }
+
+        // fixing the removal of displayPanel's label
+        displayPanel.add(new JLabel("Display"));
 
         // System.out.println(Arrays.toString(displayPanel.getComponents()));
 
