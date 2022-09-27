@@ -14,14 +14,15 @@ public class WaitPanel extends MacroPanel
     public WaitPanel(MacroComponent m)
     {
         super(m);
+        int indexIncrementer = 1;
 
         // Label for ID
-        this.add(new JLabel(this.getClass().getSimpleName()), 1);
+        this.add(new JLabel(this.toString()), indexIncrementer++);
 
-        this.add(new JLabel("Time (ms): "), 2);
+        this.add(new JLabel("Time (ms): "), indexIncrementer++);
         waitField = new JTextField();
         waitField.setPreferredSize(new Dimension(50, 20));
-        this.add(waitField, 3);
+        this.add(waitField, indexIncrementer);
     }
 
     @Override

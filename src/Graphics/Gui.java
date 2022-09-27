@@ -19,7 +19,7 @@ public class Gui
     // used when adding MacroPanels via the buttons
     private MacroComponent tempComponent;
 
-    // ArrayLiat to hold all the MacroPanels
+    // ArrayList to hold all the MacroPanels
     private ArrayList<MacroPanel> panelList = new ArrayList<MacroPanel>();
 
     // used to display information in the info panel

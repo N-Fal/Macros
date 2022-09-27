@@ -65,6 +65,7 @@ public abstract class MacroPanel extends JPanel
 
     public String toString()
     {
-        return (this.getClass().getSimpleName());
+        String name = this.getClass().getSimpleName();
+        return name.substring(0, name.length() - 5);
     }
 }

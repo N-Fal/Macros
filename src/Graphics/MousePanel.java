@@ -14,11 +14,12 @@ public class MousePanel extends MacroPanel
     public MousePanel(MacroComponent m)
     {
         super(m);
+        int indexIncrementer = 1;
 
         // Label for ID
-        this.add(new JLabel(this.getClass().getSimpleName()), 1);
+        this.add(new JLabel(this.toString()), indexIncrementer++);
 
-        this.add(new JLabel("Left Click: "), 2);
+        this.add(new JLabel("Left Click: "), indexIncrementer++);
         leftCheck = new JCheckBox();
         leftCheck.addActionListener(new ActionListener()
         {
@@ -31,10 +32,10 @@ public class MousePanel extends MacroPanel
                 }
             }
         });
-        this.add(leftCheck, 3);
+        this.add(leftCheck, indexIncrementer++);
 
 
-        this.add(new JLabel("Right Click: "), 4);
+        this.add(new JLabel("Right Click: "), indexIncrementer++);
         rightCheck = new JCheckBox();
         rightCheck.addActionListener(new ActionListener()
         {
@@ -47,15 +48,15 @@ public class MousePanel extends MacroPanel
                 }
             }
         });
-        this.add(rightCheck, 5);
+        this.add(rightCheck, indexIncrementer++);
 
-        this.add(new JLabel("Press: "), 6);
+        this.add(new JLabel("Press: "), indexIncrementer++);
         pressCheck = new JCheckBox();
-        this.add(pressCheck, 7);
+        this.add(pressCheck, indexIncrementer++);
 
-        this.add(new JLabel("Release: "), 8);
+        this.add(new JLabel("Release: "), indexIncrementer++);
         releaseCheck = new JCheckBox();
-        this.add(releaseCheck, 9);
+        this.add(releaseCheck, indexIncrementer);
     }
 
     @Override

@@ -17,23 +17,24 @@ public class KeyPanel extends MacroPanel
     public KeyPanel(MacroComponent m)
     {
         super(m);
+        int indexIncrementer = 1;
 
         // Label for ID
-        this.add(new JLabel(this.getClass().getSimpleName()), 1);
+        this.add(new JLabel(this.toString()), indexIncrementer++);
 
 
-        this.add(new JLabel("Key Code:"), 2);
+        this.add(new JLabel("Key Code:"), indexIncrementer++);
         keyCodeField = new JTextField();
         keyCodeField.setPreferredSize(new Dimension(50, 20));
-        this.add(keyCodeField, 3);
+        this.add(keyCodeField, indexIncrementer++);
 
-        this.add(new JLabel("Press: "), 4);
+        this.add(new JLabel("Press: "), indexIncrementer++);
         pressCheck = new JCheckBox();
-        this.add(pressCheck, 5);
+        this.add(pressCheck, indexIncrementer++);
 
-        this.add(new JLabel("Release: "), 6);
+        this.add(new JLabel("Release: "), indexIncrementer++);
         releaseCheck = new JCheckBox();
-        this.add(releaseCheck, 7);
+        this.add(releaseCheck, indexIncrementer);
 
 
     }

@@ -13,12 +13,13 @@ public class TypePanel extends MacroPanel
     public TypePanel(MacroComponent m)
     {
         super(m);
+        int indexIncrementer = 1;
 
         // Label for ID
-        this.add(new JLabel(this.getClass().getSimpleName()), 1);
+        this.add(new JLabel(this.toString()), indexIncrementer++);
 
         phraseField.setPreferredSize(new Dimension(100, 20));
-        this.add(phraseField, 2);
+        this.add(phraseField, indexIncrementer);
     }
 
     @Override
