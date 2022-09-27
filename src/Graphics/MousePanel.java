@@ -14,10 +14,7 @@ public class MousePanel extends MacroPanel
     public MousePanel(MacroComponent m)
     {
         super(m);
-        int indexIncrementer = 1;
-
-        // Label for ID
-        this.add(new JLabel(this.toString()), indexIncrementer++);
+        int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
 
         this.add(new JLabel("Left Click: "), indexIncrementer++);
         leftCheck = new JCheckBox();

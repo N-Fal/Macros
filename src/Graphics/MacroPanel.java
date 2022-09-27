@@ -26,6 +26,8 @@ public abstract class MacroPanel extends JPanel
         listNumLabel = new JLabel();
         this.add(listNumLabel, 0);
 
+        this.add(new JLabel(this.toString()), 1);
+
         JButton exitButton = new JButton("Exit");
         exitButton.addActionListener(new ActionListener()
         {
