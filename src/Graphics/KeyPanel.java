@@ -19,10 +19,16 @@ public class KeyPanel extends MacroPanel
         super(m);
         int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
 
+        // separating label from fields
+        this.add(Box.createRigidArea(new Dimension(75, 0)), indexIncrementer++);
+
         this.add(new JLabel("Key Code:"), indexIncrementer++);
         keyCodeField = new JTextField();
-        keyCodeField.setPreferredSize(new Dimension(50, 20));
+        keyCodeField.setPreferredSize(new Dimension(104, 20));
         this.add(keyCodeField, indexIncrementer++);
+
+        // separaing key field from action fields
+        this.add(Box.createRigidArea(new Dimension(70, 0)), indexIncrementer++);
 
         this.add(new JLabel("Press: "), indexIncrementer++);
         pressCheck = new JCheckBox();
@@ -30,7 +36,10 @@ public class KeyPanel extends MacroPanel
 
         this.add(new JLabel("Release: "), indexIncrementer++);
         releaseCheck = new JCheckBox();
-        this.add(releaseCheck, indexIncrementer);
+        this.add(releaseCheck, indexIncrementer++);
+
+        // separating exit button from fields
+        this.add(Box.createRigidArea(new Dimension(100, 0)), indexIncrementer);
 
 
     }

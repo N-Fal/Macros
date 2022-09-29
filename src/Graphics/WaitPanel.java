@@ -16,10 +16,16 @@ public class WaitPanel extends MacroPanel
         super(m);
         int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
 
+        // separating label from field
+        this.add(Box.createRigidArea(new Dimension(70, 0)), indexIncrementer++);
+
         this.add(new JLabel("Time (ms): "), indexIncrementer++);
         waitField = new JTextField();
-        waitField.setPreferredSize(new Dimension(50, 20));
-        this.add(waitField, indexIncrementer);
+        waitField.setPreferredSize(new Dimension(103, 20));
+        this.add(waitField, indexIncrementer++);
+
+        // separating exit button from field
+        this.add(Box.createRigidArea(new Dimension(329, 0)), indexIncrementer);
     }
 
     @Override

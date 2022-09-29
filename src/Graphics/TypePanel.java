@@ -15,8 +15,16 @@ public class TypePanel extends MacroPanel
         super(m);
         int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
 
-        phraseField.setPreferredSize(new Dimension(100, 20));
-        this.add(phraseField, indexIncrementer);
+        // separating label from field
+        this.add(Box.createRigidArea(new Dimension(68, 0)), indexIncrementer++);
+
+        this.add(new JLabel("Statement: "), indexIncrementer++);
+
+        phraseField.setPreferredSize(new Dimension(329, 20));
+        this.add(phraseField, indexIncrementer++);
+
+        // separating exit button from field
+        this.add(Box.createRigidArea(new Dimension(99, 0)), indexIncrementer);
     }
 
     @Override

@@ -4,6 +4,7 @@ import MacroComponents.MacroComponent;
 import MacroComponents.MouseComponent;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +16,9 @@ public class MousePanel extends MacroPanel
     {
         super(m);
         int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
+
+        // separating the label from the fields.
+        this.add(Box.createRigidArea(new Dimension(60, 0)), indexIncrementer++);
 
         this.add(new JLabel("Left Click: "), indexIncrementer++);
         leftCheck = new JCheckBox();
@@ -47,13 +51,19 @@ public class MousePanel extends MacroPanel
         });
         this.add(rightCheck, indexIncrementer++);
 
+        // separating button fields from action fields
+        this.add(Box.createRigidArea(new Dimension(50, 0)), indexIncrementer++);
+
         this.add(new JLabel("Press: "), indexIncrementer++);
         pressCheck = new JCheckBox();
         this.add(pressCheck, indexIncrementer++);
 
         this.add(new JLabel("Release: "), indexIncrementer++);
         releaseCheck = new JCheckBox();
-        this.add(releaseCheck, indexIncrementer);
+        this.add(releaseCheck, indexIncrementer++);
+
+        // separating exit button from fields.
+        this.add(Box.createRigidArea(new Dimension(101, 0)), indexIncrementer);
     }
 
     @Override

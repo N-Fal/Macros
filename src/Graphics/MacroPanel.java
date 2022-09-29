@@ -20,7 +20,7 @@ public abstract class MacroPanel extends JPanel
 
         this.setMaximumSize(new Dimension(680, 40));
         this.setPreferredSize(new Dimension(680, 40));
-        this.setLayout(new FlowLayout());
+        this.setLayout(new FlowLayout(FlowLayout.LEFT));
         this.setBackground(Color.GRAY);
 
         listNumLabel = new JLabel();
@@ -60,9 +60,32 @@ public abstract class MacroPanel extends JPanel
 
     public abstract void updateMacro();
 
+    // lots of extra code to make sure the increasing number of digits doesn't push every component back
     public void setListNumber(int i)
     {
-        listNumLabel.setText(i + ".");
+        String text = i + 1 + ".";
+        int digits = 0;
+
+        // counts the number of digits in i
+        int j = i + 1;
+        while (j < 1000)
+        {
+            j *= 10;
+            digits++;
+        }
+
+        // adds 2 spaces for every missing digit
+        for (int k = 0; k + 1 < digits * 2; k++)
+        {
+            text += " ";
+        }
+
+        listNumLabel.setText(text);
+    }
+
+    public String getListNumber()
+    {
+        return listNumLabel.getText();
     }
 
     public String toString()

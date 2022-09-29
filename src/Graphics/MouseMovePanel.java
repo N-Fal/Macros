@@ -17,15 +17,24 @@ public class MouseMovePanel extends MacroPanel
         super(m);
         int indexIncrementer = 2; // 2 accounts for the "numListLabel" and the classname label
 
-        this.add(new JLabel("X: "), indexIncrementer++);
+        // separating the label from the X field
+        this.add(Box.createRigidArea(new Dimension(28, 0)), indexIncrementer++);
+
+        this.add(new JLabel("X Coordinate: "), indexIncrementer++);
         xField = new JTextField();
-        xField.setPreferredSize(new Dimension(50, 20));
+        xField.setPreferredSize(new Dimension(65, 20));
         this.add(xField, indexIncrementer++);
 
-        this.add(new JLabel("Y: "), indexIncrementer++);
+        // separating the X field from the Y field
+        this.add(Box.createRigidArea(new Dimension(84, 0)), indexIncrementer++);
+
+        this.add(new JLabel("Y Coordinate: "), indexIncrementer++);
         yField = new JTextField();
-        yField.setPreferredSize(new Dimension(50, 20));
-        this.add(yField, indexIncrementer);
+        yField.setPreferredSize(new Dimension(65, 20));
+        this.add(yField, indexIncrementer++);
+
+        // separating the exit button from the fields
+        this.add(Box.createRigidArea(new Dimension(99, 0)), indexIncrementer);
 
     }
 
