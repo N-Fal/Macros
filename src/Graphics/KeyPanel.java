@@ -2,7 +2,6 @@ package Graphics;
 
 import MacroComponents.KeyComponent;
 import MacroComponents.MacroComponent;
-import MacroComponents.TypeComponent;
 
 import javax.swing.*;
 import java.awt.*;

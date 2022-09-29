@@ -26,6 +26,9 @@ public class Gui
     private JLabel xPosLabel, yPosLabel, keyLabel;
     private Thread mouseLocThread = new Thread(new MouseLocation());
 
+    // used to only add 1 MacroPanel when using a hotkey
+    private boolean keyHeld = true;
+
     public Gui()
     {
         // basic initialing of the frame
@@ -252,6 +255,32 @@ public class Gui
             @Override
             public void keyTyped(KeyEvent e)
             {
+                if (!keyHeld)
+                {
+                    switch (e.getKeyChar())
+                    {
+                        case '1':
+                            play.doClick();
+                            break;
+                        case '2':
+                            click.doClick();
+                            break;
+                        case '3':
+                            move.doClick();
+                            break;
+                        case '4':
+                            type.doClick();
+                            break;
+                        case '5':
+                            key.doClick();
+                            break;
+                        case '6':
+                            wait.doClick();
+                            break;
+                        default:
+                    }
+                }
+                keyHeld = true;
             }
 
             @Override
@@ -261,7 +290,10 @@ public class Gui
                 updateGui();
             }
             @Override
-            public void keyReleased(KeyEvent e) {}
+            public void keyReleased(KeyEvent e)
+            {
+                keyHeld = false;
+            }
         });
 
         frame.add(mainPanel);
