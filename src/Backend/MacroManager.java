@@ -81,4 +81,15 @@ public class MacroManager
 
         return builder.toString();
     }
+
+    public void move(int toMove, int moveTo)
+    {
+        System.out.println(this);
+
+        MacroComponent temp = macroList.get(toMove);
+        macroList.remove(toMove);
+        macroList.add(moveTo, temp);
+
+        System.out.println(this);
+    }
 }

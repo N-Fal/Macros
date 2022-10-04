@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Gui
 {
@@ -90,6 +91,40 @@ public class Gui
         JMenuItem newFile = new JMenu("New");
         fileMenu.add(newFile);
         optionsBar.add(fileMenu);
+
+        // edit macro menu
+        JMenu editMenu = new JMenu("Edit");
+        JMenuItem moveComponent = new JMenuItem("Move");
+        moveComponent.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                int indexToMove = 0, indexMoveTo = 0;
+
+                try
+                {
+                    indexToMove = Integer.parseInt(JOptionPane.showInputDialog("Which component would you like to move? (integer)")) - 1;
+                    indexMoveTo = Integer.parseInt(JOptionPane.showInputDialog("Where would you like to move it to? (integer)")) - 1;
+                } catch (NumberFormatException f)
+                {
+                    return;
+                }
+
+                try
+                {
+                    Main.manager.move(indexToMove, indexMoveTo);
+                    move(indexToMove, indexMoveTo);
+                } catch (IndexOutOfBoundsException f)
+                {
+                    return;
+                }
+
+                updateDisplayPanel();
+            }
+        });
+        editMenu.add(moveComponent);
+        optionsBar.add(editMenu);
 
         // setting up the scroll bar
 
@@ -375,6 +410,13 @@ public class Gui
     {
         xPosLabel.setText("Mouse coordinates: x: " + p.x);
         yPosLabel.setText("y: " + p.y);
+    }
+
+    public void move(int toMove, int moveTo)
+    {
+        MacroPanel temp = panelList.get(toMove);
+        panelList.remove(toMove);
+        panelList.add(moveTo, temp);
     }
 }
 
