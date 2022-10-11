@@ -6,6 +6,8 @@ import MacroComponents.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -85,8 +87,35 @@ public class Gui
         // save/load menu
         JMenu fileMenu = new JMenu("File");
         JMenuItem saveFile = new JMenuItem("Save");
+        saveFile.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String fileName = JOptionPane.showInputDialog("What's the name of your macro?");
+                try
+                {
+                    Main.fileManager.saveFile(fileName);
+                } catch (IOException f) {}
+            }
+        });
+
         fileMenu.add(saveFile);
-        JMenuItem loadFile = new JMenu(("Load"));
+        JMenuItem loadFile = new JMenuItem(("Load"));
+        loadFile.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String fileName = JOptionPane.showInputDialog("What's the name of the macro you want to load?");
+                try
+                {
+                    Main.manager.loadContents(Main.fileManager.loadFile(fileName));
+                }
+                catch (FileNotFoundException f) {}
+            }
+        });
+
         fileMenu.add(loadFile);
         JMenuItem newFile = new JMenu("New");
         fileMenu.add(newFile);
@@ -354,12 +383,25 @@ public class Gui
         updateGui();
     }
 
+    public void addToPanelList(MacroPanel macroPanel)
+    {
+        panelList.add(macroPanel);
+        Main.manager.add(macroPanel.getMacro());
+        displayPanel.add(macroPanel);
+        updateGui();
+    }
+
     public void removeFromPanelList(MacroPanel macroPanel)
     {
         panelList.remove(macroPanel);
         Main.manager.remove(macroPanel.getMacro());
         displayPanel.remove(macroPanel);
         updateGui();
+    }
+
+    public void removeFromPanelList()
+    {
+        panelList.clear();
     }
 
     private void updateGui()

@@ -60,6 +60,8 @@ public abstract class MacroPanel extends JPanel
 
     public abstract void updateMacro();
 
+    public abstract void updateFields();
+
     // lots of extra code to make sure the increasing number of digits doesn't push every component back
     public void setListNumber(int i)
     {

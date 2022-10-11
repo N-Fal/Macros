@@ -33,7 +33,7 @@ public class MacroManager
         macroList.remove(m);
     }
 
-    private void updateAllComponents()
+    public void updateAllComponents()
     {
         for (MacroComponent m : macroList)
         {
@@ -91,5 +91,24 @@ public class MacroManager
         macroList.add(moveTo, temp);
 
         System.out.println(this);
+    }
+
+    public void loadContents(String contents)
+    {
+        macroList.clear();
+        Main.gui.removeFromPanelList();
+
+        String[] contentArray = contents.split("\n");
+
+        MacroComponent temp;
+        for (String s : contentArray)
+        {
+            temp = MacroComponent.loadComponent(s);
+            temp.getDisplay().updateFields();
+            Main.gui.addToPanelList(temp.getDisplay());
+        }
+
+        System.out.println(macroList);
+        System.out.println();
     }
 }

@@ -72,4 +72,27 @@ public class KeyPanel extends MacroPanel
             temp.setAction(MacroComponent.Action.TYPE);
         }
     }
+
+    @Override
+    public void updateFields()
+    {
+        KeyComponent temp = (KeyComponent)(this.getMacro());
+
+        keyCodeField.setText(temp.getKeyCode() + "");
+
+        switch(temp.getAction())
+        {
+            case PRESS:
+                pressCheck.setSelected(true);
+                break;
+            case RELEASE:
+                releaseCheck.setSelected(true);
+                break;
+            case TYPE:
+                pressCheck.setSelected(true);
+                releaseCheck.setSelected(true);
+                break;
+            default:
+        }
+    }
 }
