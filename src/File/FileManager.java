@@ -18,7 +18,7 @@ public class FileManager
     {
         Main.manager.updateAllComponents();
 
-        writer = new FileWriter("C:/Users/sidek/Desktop/Macros/" + fileName + ".txt");
+        writer = new FileWriter("./Macros/" + fileName + ".txt");
         output = new PrintWriter(writer);
 
         output.write(Main.manager.toString());

@@ -108,7 +108,6 @@ public class MacroManager
             Main.gui.addToPanelList(temp.getDisplay());
         }
 
-        System.out.println(macroList);
-        System.out.println();
+        Main.gui.updateScrollBarMax();
     }
 }
