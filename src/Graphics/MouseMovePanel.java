@@ -54,4 +54,13 @@ public class MouseMovePanel extends MacroPanel
             temp.setMouseY(0);
         }
     }
+
+    @Override
+    public void updateFields()
+    {
+        MouseMoveComponent temp = (MouseMoveComponent)(this.getMacro());
+
+        xField.setText(temp.getMouseX() + "");
+        yField.setText(temp.getMouseY() + "");
+    }
 }

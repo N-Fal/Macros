@@ -96,4 +96,35 @@ public class MousePanel extends MacroPanel
             temp.setAction(MacroComponent.Action.TYPE);
         }
     }
+
+    @Override
+    public void updateFields()
+    {
+        MouseComponent temp = (MouseComponent)(this.getMacro());
+        switch(temp.getButton())
+        {
+            case LEFT:
+                leftCheck.setSelected(true);
+                break;
+            case RIGHT:
+                rightCheck.setSelected(true);
+                break;
+            default:
+        }
+
+        switch(temp.getAction())
+        {
+            case PRESS:
+                pressCheck.setSelected(true);
+                break;
+            case RELEASE:
+                releaseCheck.setSelected(true);
+                break;
+            case TYPE:
+                pressCheck.setSelected(true);
+                releaseCheck.setSelected(true);
+                break;
+            default:
+        }
+    }
 }

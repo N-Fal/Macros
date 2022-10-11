@@ -33,4 +33,11 @@ public class TypePanel extends MacroPanel
         TypeComponent temp = (TypeComponent)(this.getMacro());
         temp.setPhrase(phraseField.getText());
     }
+
+    @Override
+    public void updateFields()
+    {
+        TypeComponent temp = (TypeComponent)(this.getMacro());
+        phraseField.setText(temp.getPhrase());
+    }
 }

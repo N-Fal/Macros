@@ -42,4 +42,11 @@ public class WaitPanel extends MacroPanel
             temp.setTime(0);
         }
     }
+
+    public void updateFields()
+    {
+        WaitComponent temp = (WaitComponent)(this.getMacro());
+
+        waitField.setText(temp.getTime() + "");
+    }
 }
