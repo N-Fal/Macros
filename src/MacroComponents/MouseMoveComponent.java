@@ -20,9 +20,19 @@ public class MouseMoveComponent extends MacroComponent
         this.mouseX = mouseX;
     }
 
+    public int getMouseX()
+    {
+        return mouseX;
+    }
+
     public void setMouseY(int mouseY)
     {
         this.mouseY = mouseY;
+    }
+
+    public int getMouseY()
+    {
+        return mouseY;
     }
 
     @Override
@@ -34,6 +44,6 @@ public class MouseMoveComponent extends MacroComponent
     @Override
     public String toString()
     {
-        return "move" + mouseX + " " + mouseY;
+        return "move " + mouseX + " " + mouseY;
     }
 }

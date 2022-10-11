@@ -19,6 +19,11 @@ public class TypeComponent extends MacroComponent
         this.phrase = phrase;
     }
 
+    public String getPhrase()
+    {
+        return phrase;
+    }
+
     @Override
     public void performAction(Inputter inputter)
     {

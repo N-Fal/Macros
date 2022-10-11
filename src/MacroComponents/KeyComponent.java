@@ -21,9 +21,19 @@ public class KeyComponent extends MacroComponent
         this.keyCode = keyCode;
     }
 
+    public int getKeyCode()
+    {
+        return keyCode;
+    }
+
     public void setAction(Action action)
     {
         this.action = action;
+    }
+
+    public Action getAction()
+    {
+        return action;
     }
 
     @Override

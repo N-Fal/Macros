@@ -19,6 +19,11 @@ public class WaitComponent extends MacroComponent
         this.time = time;
     }
 
+    public int getTime()
+    {
+        return time;
+    }
+
     @Override
     public void performAction(Inputter inputter)
     {

@@ -21,9 +21,19 @@ public class MouseComponent extends MacroComponent
         this.button = button;
     }
 
+    public Mouse getButton()
+    {
+        return button;
+    }
+
     public void setAction(Action action)
     {
         this.action = action;
+    }
+
+    public Action getAction()
+    {
+        return action;
     }
 
     @Override
