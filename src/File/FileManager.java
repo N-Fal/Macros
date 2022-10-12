@@ -18,7 +18,8 @@ public class FileManager
     {
         Main.manager.updateAllComponents();
 
-        writer = new FileWriter("./Macros/" + fileName + ".txt");
+        // String should be "./Macros/" in the actual program
+        writer = new FileWriter("C:/Users/sidek/Desktop/Macros/" + fileName + ".txt");
         output = new PrintWriter(writer);
 
         output.write(Main.manager.toString());
@@ -29,7 +30,9 @@ public class FileManager
 
     public String loadFile(String fileName) throws FileNotFoundException
     {
-        Scanner fileReader = new Scanner(new File("./Macros/" + fileName + ".txt"));
+
+        // String should be "./Macros/" in the actual program
+        Scanner fileReader = new Scanner(new File("C:/Users/sidek/Desktop/Macros/" + fileName + ".txt"));
         fileReader.useDelimiter("\n");
         StringBuilder contents = new StringBuilder();
 

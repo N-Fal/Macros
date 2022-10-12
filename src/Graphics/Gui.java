@@ -441,6 +441,7 @@ public class Gui
         if (Main.manager.getMacroSize() * 10 > 60)
         {
             scroll.setMaximum(Main.manager.getMacroSize() * 10 - 40);
+            scroll.setValue(Main.manager.getMacroSize() * 10 - 40);
         }
         else
         {
