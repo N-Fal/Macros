@@ -1,9 +1,0 @@
-Large updates:
-- add a save/load file feature
-- display mouse coordinates in the info panel
-- make the scroll bar functional so macros can have infinite length
-- had a help option and have windows giving tutorials on using the program
-
-Small fixes:
-- make it so every key is released after running a macro
-- make macroComponents throw an InvalidMacroException when weird inputs are given, return helpful debug information to be displayed in a JOptionPane

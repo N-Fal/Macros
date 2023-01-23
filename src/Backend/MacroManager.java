@@ -1,9 +1,7 @@
 package Backend;
 
 import MacroComponents.MacroComponent;
-import Graphics.*;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -33,19 +31,8 @@ public class MacroManager
         macroList.remove(m);
     }
 
-    public void updateAllComponents()
-    {
-        for (MacroComponent m : macroList)
-        {
-            m.getDisplay().updateMacro();
-        }
-    }
-
     public void runMacro()
     {
-        updateAllComponents();
-        System.out.println(this);
-
         for (MacroComponent m : macroList)
         {
             m.performAction(this.macroRunner);
@@ -91,23 +78,5 @@ public class MacroManager
         macroList.add(moveTo, temp);
 
         System.out.println(this);
-    }
-
-    public void loadContents(String contents)
-    {
-        macroList.clear();
-        Main.gui.removeFromPanelList();
-
-        String[] contentArray = contents.split("\n");
-
-        MacroComponent temp;
-        for (String s : contentArray)
-        {
-            temp = MacroComponent.loadComponent(s);
-            temp.getDisplay().updateFields();
-            Main.gui.addToPanelList(temp.getDisplay());
-        }
-
-        Main.gui.updateScrollBarMax();
     }
 }
