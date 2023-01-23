@@ -1,9 +1,6 @@
 package Backend;
 
 import MacroComponents.MacroComponent;
-import Graphics.*;
-
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -44,7 +41,7 @@ public class MacroManager
     public void runMacro()
     {
         updateAllComponents();
-        System.out.println(this);
+        // System.out.println(this);
 
         for (MacroComponent m : macroList)
         {
