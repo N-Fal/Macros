@@ -1,34 +1,21 @@
 package MacroComponents;
 
-import Backend.Inputter;
+import Manager.Inputter;
 
-public class MouseComponent extends MacroComponent
+public final class MouseComponent extends MacroComponent
 {
-    private Mouse button;
-    private Action action;
+    private final Mouse button;
+    private final Action action;
 
     public MouseComponent(Mouse button, Action action)
     {
-        super(MacroType.MOUSE);
         this.button = button;
         this.action = action;
-
-        this.setType(MacroType.MOUSE);
-    }
-
-    public void setButton(Mouse button)
-    {
-        this.button = button;
     }
 
     public Mouse getButton()
     {
         return button;
-    }
-
-    public void setAction(Action action)
-    {
-        this.action = action;
     }
 
     public Action getAction()

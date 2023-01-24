@@ -1,34 +1,21 @@
 package MacroComponents;
 
-import Backend.Inputter;
+import Manager.Inputter;
 
-public class KeyComponent extends MacroComponent
+public final class KeyComponent extends MacroComponent
 {
-    private int keyCode;
-    private Action action;
+    private final int keyCode;
+    private final Action action;
 
     public KeyComponent(int keyCode, Action action)
     {
-        super(MacroType.KEY);
         this.keyCode = keyCode;
         this.action = action;
-
-        this.setType(MacroType.KEY);
-    }
-
-    public void setKeyCode(int keyCode)
-    {
-        this.keyCode = keyCode;
     }
 
     public int getKeyCode()
     {
         return keyCode;
-    }
-
-    public void setAction(Action action)
-    {
-        this.action = action;
     }
 
     public Action getAction()

@@ -1,14 +1,13 @@
-package Backend;//212 :>
+package Manager;//212 :>
 
 import MacroComponents.MacroComponent;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class Inputter
 {
-    private Robot runner;
+    private final Robot runner;
 
     public Inputter() throws AWTException
     {
@@ -86,8 +85,7 @@ public class Inputter
                         code = KeyEvent.VK_SEMICOLON;
                         break;
                     case '"':
-                        // code = KeyEvent.getExtendedKeyCodeForChar('\'');
-                        code = KeyEvent.VK_QUOTE; // idk if this is the right number
+                        code = KeyEvent.VK_QUOTE;
                         break;
                     case '<':
                         code = KeyEvent.VK_COMMA;
@@ -100,8 +98,7 @@ public class Inputter
                         break;
                 }
                 this.typeCapped(code);
-                // System.out.println("The code " + i + " doesn't work correctly :(");
-            };
+            }
         }
     }
 
@@ -114,14 +111,12 @@ public class Inputter
         runner.keyRelease(keycode);
     }
 
-    // combines the press and release action into 1 method
     public void typeKey(int keycode)
     {
         this.press(keycode);
         this.release(keycode);
     }
 
-    // holds shift while typing the given code
     private void typeCapped(int keycode)
     {
         this.press(KeyEvent.VK_SHIFT);

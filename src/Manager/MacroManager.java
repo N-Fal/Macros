@@ -1,4 +1,4 @@
-package Backend;
+package Manager;
 
 import MacroComponents.MacroComponent;
 
@@ -7,28 +7,34 @@ import java.util.ArrayList;
 
 public class MacroManager
 {
-    private ArrayList<MacroComponent> macroList = new ArrayList<MacroComponent>();
+    private final ArrayList<MacroComponent> macroList;
     private Inputter macroRunner;
     private int defaultWait; // the amount of time between the running of macroComponents (default is 10)
 
     public MacroManager()
     {
+        macroList = new ArrayList<>();
         try
         {
              macroRunner = new Inputter();
              defaultWait = 10;
         }
-        catch (AWTException e) {}
+        catch (AWTException e) {e.printStackTrace();}
     }
 
-    public void add(MacroComponent m)
+    public void add(MacroComponent component)
     {
-        macroList.add(m);
+        macroList.add(component);
     }
 
-    public void remove(MacroComponent m)
+    public void remove(MacroComponent component)
     {
-        macroList.remove(m);
+        macroList.remove(component);
+    }
+
+    public void remove(int index)
+    {
+        macroList.remove(index);
     }
 
     public void runMacro()
@@ -42,18 +48,11 @@ public class MacroManager
                 Thread.sleep(defaultWait);
             } catch (InterruptedException e) {e.printStackTrace();}
         }
-
-
     }
 
     public void setDefaultWait(int time)
     {
         defaultWait = time;
-    }
-
-    public int getMacroSize()
-    {
-        return macroList.size();
     }
 
     public String toString()
@@ -67,16 +66,5 @@ public class MacroManager
         }
 
         return builder.toString();
-    }
-
-    public void move(int toMove, int moveTo)
-    {
-        System.out.println(this);
-
-        MacroComponent temp = macroList.get(toMove);
-        macroList.remove(toMove);
-        macroList.add(moveTo, temp);
-
-        System.out.println(this);
     }
 }

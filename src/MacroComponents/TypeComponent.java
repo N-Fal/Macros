@@ -1,20 +1,12 @@
 package MacroComponents;
 
-import Backend.Inputter;
+import Manager.Inputter;
 
-public class TypeComponent extends MacroComponent
+public final class TypeComponent extends MacroComponent
 {
-    private String phrase;
+    private final String phrase;
 
     public TypeComponent(String phrase)
-    {
-        super(MacroType.TYPE);
-        this.phrase = phrase;
-
-        this.setType(MacroType.TYPE);
-    }
-
-    public void setPhrase(String phrase)
     {
         this.phrase = phrase;
     }

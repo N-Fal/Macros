@@ -1,9 +1,8 @@
-package Backend;
-
-import MacroComponents.TypeComponent;
+import Manager.MacroManager;
+import MacroComponents.*;
 
 /*
- * This is a streamlines, GUI-less version of the actual macro software.
+ * This is a streamlined, GUI-less version of the original macro software.
  * Instead of programming a macro via the gui, you use the macro classes like a library to program and run your macro
  * This "Main" class is an example, you can modify it or create additional main methods to create your own macros.
  */

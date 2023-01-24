@@ -1,20 +1,12 @@
 package MacroComponents;
 
-import Backend.Inputter;
+import Manager.Inputter;
 
-public class WaitComponent extends MacroComponent
+public final class WaitComponent extends MacroComponent
 {
-    private int time;
+    private final int time;
 
     public WaitComponent(int time)
-    {
-        super(MacroType.WAIT);
-        this.time = time;
-
-        this.setType(MacroType.WAIT);
-    }
-
-    public void setTime(int time)
     {
         this.time = time;
     }
