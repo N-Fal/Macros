@@ -1,8 +1,6 @@
 import Manager.MacroManager;
 import MacroComponents.*;
 
-import java.awt.*;
-
 /*
  * This is a streamlined, GUI-less version of the original macro software.
  * Instead of programming a macro via the gui, you use the macro classes like a library to program and run your macro
