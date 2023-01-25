@@ -6,6 +6,11 @@ public final class MouseMoveComponent extends MacroComponent
 {
     private final int mouseX, mouseY;
 
+    /**
+     * <p><code>MacroComponent</code> that represents a singular mouse cursor movement.</p><p>Coordinates are measured in pixels, relative to the top left corner of the main screen.</p>
+     * @param mouseX Desired X-coordinate of the mouse.
+     * @param mouseY Desired Y-coordinate of the mouse.
+     */
     public MouseMoveComponent(int mouseX, int mouseY)
     {
         this.mouseX = mouseX;

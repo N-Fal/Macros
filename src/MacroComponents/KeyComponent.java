@@ -7,6 +7,11 @@ public final class KeyComponent extends MacroComponent
     private final int keyCode;
     private final Action action;
 
+    /**
+     * <p><code>MacroComponent</code> that represents a singular keystroke.</p>
+     * @param keyCode <code>KeyEvent</code> constant.
+     * @param action <code>MacroComponent.Action</code> constant that represents the action performed with the key.
+     */
     public KeyComponent(int keyCode, Action action)
     {
         this.keyCode = keyCode;

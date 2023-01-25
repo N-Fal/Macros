@@ -1,10 +1,13 @@
-package Manager;//212 :>
+package Manager;
 
 import MacroComponents.MacroComponent;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
+/**
+ * <p>Constructs an <code>Inputter</code> object in the coordinate system of the primary screen.</p>
+ */
 public class Inputter
 {
     private final Robot runner;
@@ -14,6 +17,10 @@ public class Inputter
         runner = new Robot();
     }
 
+    /**
+     * <p>Uses the <code>keyPress()</code> and <code>keyRelease()</code> methods of the <code>Robot</code> class to type a series of characters.</p>
+     * @param phrase String of type-able characters.
+     */
     public void type(String phrase)
     {
         int code;
@@ -102,21 +109,38 @@ public class Inputter
         }
     }
 
+    /**
+     * <p>Runs the <code>keyPress()</code> method of the <code>Robot</code> class.</p>
+     * @param keycode <code>KeyEvent</code> constant.
+     */
     public void press(int keycode)
     {
         runner.keyPress(keycode);
     }
+
+    /**
+     * <p>runs the <code>keyRelease()</code> method of the Robot class.</p>
+     * @param keycode <code>KeyEvent</code> constant.
+     */
     public void release(int keycode)
     {
         runner.keyRelease(keycode);
     }
 
+    /**
+     * <p>Presses and releases the given keycode.</p>
+     * @param keycode <code>KeyEvent</code> constant.
+     */
     public void typeKey(int keycode)
     {
         this.press(keycode);
         this.release(keycode);
     }
 
+    /**
+     * <p>Presses and releases the given keycode while holding shift.</p>
+     * @param keycode <code>KeyEvent</code> constant.
+     */
     private void typeCapped(int keycode)
     {
         this.press(KeyEvent.VK_SHIFT);
@@ -124,30 +148,48 @@ public class Inputter
         this.release(KeyEvent.VK_SHIFT);
     }
 
-    // helper method for autoclick / if you just want to click once
+    /**
+     * <p>Clicks the given mouse button once.</p>
+     * @param button <code>MacroComponent.Mouse</code> constant.
+     */
     public void click(MacroComponent.Mouse button)
     {
         this.clickDown(button);
         this.clickUp(button);
     }
 
-    // helper methods for click / if you want to hold down/release a mouse button
+    /**
+     * <p>Presses and holds the given mouse button.</p>
+     * @param button <code>MacroComponent.Mouse</code> constant.
+     */
     public void clickDown(MacroComponent.Mouse button)
     {
         runner.mousePress(button.getMouseCode());
     }
 
+    /**
+     * <p>Releases the given mouse button</p>
+     * @param button <code>MacroComponent.Mouse</code> constant.
+     */
     public void clickUp(MacroComponent.Mouse button)
     {
         runner.mouseRelease(button.getMouseCode());
     }
 
-    // moves the mouse cursor to pixel coordinates.
+    /**
+     * <p>Moves the mouse to given XY coordinates.</p>
+     * @param x X-coordinate of the mouse.
+     * @param y Y-coordinate of the mouse.
+     */
     public void mouseTo(int x, int y)
     {
         runner.mouseMove(x, y);
     }
 
+    /**
+     * Scrolls the mouse wheel.
+     * @param amount number of "notches" the mouse wheel will turn.
+     */
     public void mouseScroll(int amount)
     {
         runner.mouseWheel(amount);
