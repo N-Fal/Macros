@@ -1,151 +1,68 @@
 package MacroComponents;
 
-import Backend.Inputter;
+import Manager.Inputter;
 import java.awt.event.KeyEvent;
 
 public abstract class MacroComponent
 {
-    private MacroType type;
-
-    public MacroComponent(MacroType type)
-    {
-
-    }
-
-    public enum MacroType
-    {
-        MOUSE,
-        MOUSE_MOVE,
-        KEY,
-        TYPE,
-        WAIT
-    }
-
+    /**
+     * <p>Holds the <code>KeyEvent</code> values of each mouse button.</p>
+     */
     public enum Mouse
     {
+        /**
+         * <p>Left mouse button.</p>
+         */
         LEFT(KeyEvent.BUTTON1_DOWN_MASK),
+        /**
+         * <p>Right mouse button.</p>
+         */
         RIGHT(KeyEvent.BUTTON2_DOWN_MASK),
+        /**
+         * <p>Scroll wheel button.</p>
+         */
         MIDDLE(KeyEvent.BUTTON3_DOWN_MASK);
 
-        private int mouseCode;
+        private final int mouseCode;
 
         Mouse(int button)
         {
             mouseCode = button;
         }
 
+        /**
+         * @return Integer value of the <code>KeyEvent</code> mouse button code
+         */
         public int getMouseCode()
         {
             return mouseCode;
         }
     }
 
+    /**
+     * <p>Contains the different actions one can perform with a key on a keyboard.</p>
+     */
     public enum Action
     {
+        /**
+         * <p>Represents pressing and holding down a key.</p>
+         */
         PRESS,
+        /**
+         * <p>Represents releasing a key that was being held down.</p>
+         */
         RELEASE,
+        /**
+         * <p>Represents pressing and releasing a key.</p>
+         */
         TYPE
     }
 
-    void setType(MacroType type)
-    {
-        this.type = type;
-    }
-
-    // each MacroComponent subclass performs an action by giving its instance variables to a passed Inputter object.
+    /**
+     * <p>A series of instructions for an <code>Inputter</code> object. This details what the <code>MacroComponent</code> actually does in the context of the macro.</p>
+     * @param inputter Typically passed by a <code>MacroManager</code> when the <code>runMacro()</code> method is called.
+     */
     public abstract void performAction(Inputter inputter);
 
     public abstract String toString();
-
-    public static MacroComponent loadComponent(String info)
-    {
-        MacroComponent output;
-        String[] splitLine = info.split(" ");
-
-        switch(splitLine[0])
-        {
-            case "mouse":
-                Mouse mouseButton;
-                Action mouseAction;
-
-                switch(splitLine[1])
-                {
-                    default:
-                    case "LEFT":
-                        mouseButton = Mouse.LEFT;
-                        break;
-                    case "RIGHT":
-                        mouseButton = Mouse.RIGHT;
-                        break;
-                    case "MIDDLE":
-                        mouseButton = Mouse.MIDDLE;
-                        break;
-                }
-
-                switch (splitLine[2])
-                {
-                    case "PRESS":
-                        mouseAction = Action.PRESS;
-                        break;
-                    case "RELEASE":
-                        mouseAction = Action.RELEASE;
-                        break;
-                    default:
-                    case "TYPE":
-                        mouseAction = Action.TYPE;
-                        break;
-                }
-
-                output = new MouseComponent(mouseButton, mouseAction);
-                break;
-
-            case "move":
-                int x = Integer.parseInt(splitLine[1]);
-                int y = Integer.parseInt(splitLine[2]);
-                output = new MouseMoveComponent(x, y);
-                break;
-
-            case "type":
-                StringBuilder phrase = new StringBuilder();
-                for (int i = 1; i < splitLine.length; i++)
-                {
-                    phrase.append(splitLine[i] + " ");
-                }
-
-                output = new TypeComponent(phrase.toString());
-                break;
-
-            case "key":
-                int keyCode = Integer.parseInt(splitLine[1]);
-
-                Action keyAction;
-
-                switch (splitLine[2])
-                {
-                    case "PRESS":
-                        keyAction = Action.PRESS;
-                        break;
-                    case "RELEASE":
-                        keyAction = Action.RELEASE;
-                        break;
-                    default:
-                    case "TYPE":
-                        keyAction = Action.TYPE;
-                        break;
-                }
-
-                output = new KeyComponent(keyCode, keyAction);
-                break;
-
-            case "wait":
-                int time = Integer.parseInt(splitLine[1]);
-                output = new WaitComponent(time);
-                break;
-
-            default:
-                output = null;
-        }
-
-        return output;
-    }
 }
