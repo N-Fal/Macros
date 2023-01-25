@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Macros:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Macros_jar</output-path>
+    <root id="archive" name="Macros.jar">
+      <element id="module-output" name="Macros" />
+    </root>
+  </artifact>
+</component>
