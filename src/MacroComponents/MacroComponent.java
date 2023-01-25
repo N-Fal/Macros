@@ -1,6 +1,6 @@
 package MacroComponents;
 
-import Manager.Inputter;
+import Macro.Inputter;
 import java.awt.event.KeyEvent;
 
 public abstract class MacroComponent

@@ -1,6 +1,6 @@
 package MacroComponents;
 
-import Manager.Inputter;
+import Macro.Inputter;
 
 public final class MouseComponent extends MacroComponent
 {

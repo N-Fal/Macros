@@ -1,4 +1,4 @@
-import Manager.MacroManager;
+import Macro.MacroManager;
 import MacroComponents.*;
 
 /*

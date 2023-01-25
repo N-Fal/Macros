@@ -1,4 +1,4 @@
-package Manager;
+package Macro;
 
 import MacroComponents.MacroComponent;
 

@@ -1,6 +1,6 @@
 package MacroComponents;
 
-import Manager.Inputter;
+import Macro.Inputter;
 
 public final class WaitComponent extends MacroComponent
 {
